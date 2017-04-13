@@ -1,4 +1,23 @@
+<?php
+require "login/loginheader.php"; 
+//Class Autoloader
+spl_autoload_register(function ($className) {
 
+    $className = strtolower($className);
+    $path = "login/includes/{$className}.php";
+
+    if (file_exists($path)) {
+
+        require_once($path);
+
+    } else {
+
+        die("The file {$className}.php could not be found.");
+
+    }
+});
+$id = new RetriveData;
+?>
 
 <!DOCTYPE html>
 <html>
@@ -11,7 +30,7 @@
     </style>
   </head>
   <body>
-    <h3>My Google Maps Demo</h3>
+    <h3>Cost Pro</h3>
     <div id="map"></div>
     <script>
       function initMap() {

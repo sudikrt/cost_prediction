@@ -1,0 +1,66 @@
+ @import "http://fonts.googleapis.com/css?family=Ubuntu";
+			#tab-art {
+				border:1px solid black;
+				border-radius: 8px;
+				
+			}
+			#bold_text{
+				font-weight:bold;
+				font-variant:small-caps;
+			}
+			.res_font {
+				font-family:'Ubuntu',sans-serif;
+			}
+			
+			.button {
+				background-color: #4CAF50; /* Green */
+				border: none;
+				color: white;
+				padding: 4px 8px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 4px 2px;
+				-webkit-transition-duration: 0.4s; /* Safari */
+				transition-duration: 0.4s;
+				cursor: pointer;
+				border-radius: 8px;
+			}
+			.button2 {
+				background-color: white;
+				color: black;
+				border: 2px solid #555555;
+			}
+
+			.button2:hover {
+				background-color: #555555;
+				color: white;
+				box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+			}
+
+			.button3 {
+				background-color: white; 
+				color: black; 
+				border: 2px solid #008CBA;
+			}
+
+			.button3:hover {
+				background-color: #008CBA;
+				color: white;
+				box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+			}
+			.button1 {
+				background-color: white; 
+				color: black; 
+				border: 2px solid #4CAF50;
+			}
+
+			.button1:hover {
+				background-color: #4CAF50;
+				color: white;
+				box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+			}
+			ul li {
+				display:inline;
+			}
