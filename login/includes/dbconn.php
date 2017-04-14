@@ -18,7 +18,11 @@ class DbConn
 		$tbl_prefix = ""; //***PLANNED FEATURE, LEAVE VALUE BLANK FOR NOW*** Prefix for all database tables
 		$tbl_members = $tbl_prefix."members";
 		$tbl_attempts = $tbl_prefix."loginAttempts";
-		$tbl_invoices =  $tbl_prefix."invoices";
+		$tbl_company =  $tbl_prefix."companyDetails";
+        $tbl_prof =  $tbl_prefix."prof_detail";
+        $tbl_stastical = $tbl_prefix."stasticaldata";
+        $tbl_experience = $tbl_prefix."experience";
+        
         $this->host = $host; // Host name
         $this->username = $username; // Mysql username
         $this->password = $password; // Mysql password
@@ -26,8 +30,11 @@ class DbConn
         $this->tbl_prefix = $tbl_prefix; // Prefix for all database tables
         $this->tbl_members = $tbl_members;
         $this->tbl_attempts = $tbl_attempts;
-		$this->tbl_invoices = $tbl_invoices;
-
+		$this->tbl_company = $tbl_company;
+        $this->tbl_prof = $tbl_prof;
+        $this->tbl_stastical = $tbl_stastical;
+        $this->tbl_experience = $tbl_experience;
+        
         try {
 			// Connect to server and select database.
 			$this->conn = new PDO('mysql:host=' . $host . ';dbname=' . $db_name . ';charset=utf8', $username, $password);
