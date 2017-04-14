@@ -65,6 +65,25 @@ $id = new RetriveData;
         <div id="map"></div>      
       </div>
     
+      <div class="container">
+          <ul>
+            <li>
+                 <a href = "login/stasticalInput.php">Stastical Data</a> 
+            </li>
+              
+              <li>
+                   <a href = "login/profInput.php">Professional Data</a>
+              </li>
+              
+              <li>
+                    <a href = "login/experienceInput.php">Experience Data</a>
+              </li>
+              
+              <li>
+                 <a href = "login/company_input.php" >Company Data</a>  
+            </li>
+          </ul>
+      </div>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEYuHzsHGqcz4jqaf_KvaqDljdpxR7Vqs&callback=initMap">
     </script>
