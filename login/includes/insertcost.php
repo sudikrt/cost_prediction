@@ -182,6 +182,77 @@
 			}
 			
 			return $success;
+        }  
+        public function getprofDesc ($str) {
+			$result = "";
+			try {
+				$db = new DbConn;
+				$tbl_profCode = $db->tbl_prof;
+				$stmt = $db->conn->prepare("SELECT * FROM ". $tbl_profCode ." WHERE description like '".$str."%' ORDER BY description LIMIT 0,6");
+				$stmt->execute();
+				$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $err='';
+				
+			} catch (PDOException $e) {
+				$err = "Error: " . $e->getMessage();
+			}
+			if ($err == '') {
+				$success = $result;
+			} else {
+				$success = $err;
+			}
+			
+			return $success;
+		}
+        
+        public function getSearchData ($profDesc) {
+            $result = "";
+			try {
+                
+				$db = new DbConn;
+				$tbl_profCode = $db->tbl_prof;
+                $tbl_stastical = $db->tbl_stastical;
+                
+            
+				$stmt = $db->conn->prepare(
+                "SELECT * FROM ". $tbl_stastical ." WHERE profCode in (SELECT profCode FROM ". $tbl_profCode ." where description = '". $profDesc."')");
+				$stmt->execute();
+				$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $err='';
+				
+			} catch (PDOException $e) {
+				$err = "Error: " . $e->getMessage();
+                //echo $err;
+			}
+			if ($err == '') {
+				$success = $result;
+			} else {
+				$success = $err;
+			}
+			
+			return $success;            
+        }
+        
+        public function getCompData ($code) {
+            $result = "";
+			try {
+				$db = new DbConn;
+				$tbl_profCode = $db->tbl_company;
+				$stmt = $db->conn->prepare("SELECT * FROM ".$tbl_profCode. " WHERE compCode ='" .$code. "'");
+				$stmt->execute();
+				$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $err='';
+				
+			} catch (PDOException $e) {
+				$err = "Error: " . $e->getMessage();
+			}
+			if ($err == '') {
+				$success = $result;
+			} else {
+				$success = $err;
+			}
+			
+			return $success;
         }
         
     }
