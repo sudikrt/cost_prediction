@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2017 at 09:23 PM
+-- Generation Time: Apr 15, 2017 at 02:15 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -19,6 +19,55 @@ SET time_zone = "+00:00";
 --
 -- Database: `cost`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `companydetails`
+--
+
+CREATE TABLE `companydetails` (
+  `compCode` int(11) NOT NULL,
+  `companyName` varchar(50) NOT NULL,
+  `latitude` decimal(12,9) NOT NULL,
+  `longitude` decimal(12,9) NOT NULL,
+  `address` varchar(150) NOT NULL,
+  `yearOfExistance` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `companydetails`
+--
+
+INSERT INTO `companydetails` (`compCode`, `companyName`, `latitude`, `longitude`, `address`, `yearOfExistance`) VALUES
+(1, 'GeekSynergy', '13.036301100', '77.574976500', 'Research and development company', 2015),
+(2, 'Ibridge', '12.520714820', '76.162467930', 'Management Company', 2015),
+(3, 'Infosys', '12.715992790', '77.686569210', 'Mangalore', 12),
+(4, 'Capgemini', '12.992739600', '77.703611250', 'Bengalore', 12),
+(5, 'Dell India', '13.020969460', '77.629083400', 'Gurjon', 2012),
+(6, 'CodeCraft', '12.871917700', '74.842472100', 'Soft', 2011);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `experience`
+--
+
+CREATE TABLE `experience` (
+  `id` int(11) NOT NULL,
+  `expLevel` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `experience`
+--
+
+INSERT INTO `experience` (`id`, `expLevel`) VALUES
+(1, 'Fresher'),
+(2, 'Junior'),
+(3, 'Senior'),
+(4, 'Expert'),
+(5, 'Master');
 
 -- --------------------------------------------------------
 
@@ -86,6 +135,17 @@ CREATE TABLE `prof_detail` (
   `description` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `prof_detail`
+--
+
+INSERT INTO `prof_detail` (`profCode`, `description`) VALUES
+(101, 'Grapic Designer'),
+(102, 'Tester'),
+(103, 'Plumber'),
+(104, 'Electrician'),
+(105, 'Associate');
+
 -- --------------------------------------------------------
 
 --
@@ -94,15 +154,48 @@ CREATE TABLE `prof_detail` (
 
 CREATE TABLE `stasticaldata` (
   `profCode` int(10) NOT NULL,
-  `startDate` decimal(10,0) NOT NULL,
-  `endDate` decimal(10,0) NOT NULL,
-  `locationCode` varchar(10) NOT NULL,
-  `hourPerPrice` decimal(20,0) NOT NULL
+  `compCode` int(10) NOT NULL,
+  `startDate` bigint(15) NOT NULL,
+  `endDate` bigint(15) NOT NULL,
+  `expLevel` varchar(30) NOT NULL,
+  `locationCode` varchar(10) DEFAULT NULL,
+  `pricePerhour` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `stasticaldata`
+--
+
+INSERT INTO `stasticaldata` (`profCode`, `compCode`, `startDate`, `endDate`, `expLevel`, `locationCode`, `pricePerhour`) VALUES
+(105, 6, 1491170400, 1492898400, 'Senior', '', '45.00'),
+(104, 6, 1492293600, 1492466400, 'Junior', '', '34.00'),
+(103, 6, 1492466400, 1492293600, 'Expert', '', '50.00'),
+(105, 5, 1492293600, 1492984800, 'Fresher', '', '33.00'),
+(104, 5, 1492380000, 1492898400, 'Senior', '', '54.00'),
+(103, 3, 1492380000, 1492898400, 'Master', '', '32.00'),
+(102, 5, 1492293600, 1492898400, 'Senior', '', '22.00'),
+(102, 6, 1492984800, 1493416800, 'Master', '', '66.00'),
+(102, 3, 1493071200, 1493157600, 'Expert', '', '54.00'),
+(104, 3, 1492293600, 1493157600, 'Senior', '', '76.00'),
+(105, 3, 1492380000, 1492984800, 'Junior', '', '45.00'),
+(101, 2, 1492898400, 1492898400, 'Senior', '', '23.00'),
+(102, 2, 1492984800, 1493157600, 'Master', '', '55.00');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `companydetails`
+--
+ALTER TABLE `companydetails`
+  ADD PRIMARY KEY (`compCode`);
+
+--
+-- Indexes for table `experience`
+--
+ALTER TABLE `experience`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `prof_detail`
@@ -110,6 +203,20 @@ CREATE TABLE `stasticaldata` (
 ALTER TABLE `prof_detail`
   ADD PRIMARY KEY (`profCode`);
 
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `companydetails`
+--
+ALTER TABLE `companydetails`
+  MODIFY `compCode` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `experience`
+--
+ALTER TABLE `experience`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
