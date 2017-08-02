@@ -288,30 +288,34 @@ spl_autoload_register(function ($className) {
       <div class="container">
           <form action="" method="post">
                   
-            <div class="frmSearch">
-                <div>
-                    <input type="text" id="latitude" name="latitude" placeholder="Latitude"/>
-                </div>
+            <div class="frmSearch" style="display:block;">
+                <div style="margin:0px; padding: 0px; display:inline-block" class="col-md-2">
+                    <div class="col-md-2">
+                        <input type="text" id="latitude" name="latitude" placeholder="Latitude"/>
+                    </div>
 
-                <br/>
-                <div>
-                    <input type="text" id="longitude" name="longitude" placeholder="Longitude"/>
+                    <br/>
+                    <div class="col-md-2">
+                        <input type="text" id="longitude" name="longitude" placeholder="Longitude"/>
+                    </div>
+
+                    <br/>
+                    <div class="col-md-2">
+                    <input type="text" id="search-box" placeholder="Company Name" />
+                    <div id="suggesstion-box"></div>
+                    </div>
+                    <br/>
+                    <div class="col-md-2">
+                    <input type="button" value="Search" id="searchBtn"/>
+                    </div>
                 </div>
                 
-                <br/>
-                <input type="text" id="search-box" placeholder="Company Name" />
-                <div id="suggesstion-box"></div>
-                
-                <br/>
-                <input type="button" value="Search" id="searchBtn"/>
-                
-                <br/>
                  <script src="https://cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js"></script>
                                     
 <link href="https://cdn.jsdelivr.net/jquery.roundslider/1.3/roundslider.min.css" rel="stylesheet" />
                                     
 <script src="https://cdn.jsdelivr.net/jquery.roundslider/1.3/roundslider.min.js"></script>
-                <div id="slider"></div>
+                <div class="col-md-2" style="float:right; display:inline-block"id="slider"></div>
             </div>
       </div>
     
